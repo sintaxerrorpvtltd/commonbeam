@@ -5,11 +5,24 @@ import HummingbirdTesting
 import CommonbeamCore
 @testable import CommonbeamHTTP
 
+// Hummingbird's router harness inserts authority "localhost" independently of
+// supplied Host fields. Remove that harness-only value; live wire authority and
+// duplicate Host handling are covered by Tests/e2e.test.mjs.
+private struct RouterHarness: HTTPResponder {
+    typealias Context = BeamContext
+    let responder: BeamHTTPResponder
+    func respond(to request: Request, context: BeamContext) async throws -> Response {
+        var head = request.head
+        head.authority = nil
+        return try await responder.respond(to: Request(head: head, body: request.body), context: context)
+    }
+}
+
 struct HTTPTests {
-    func setup() async throws -> (Application<BeamHTTPResponder>, String, String, Broker) {
+    private func setup() async throws -> (Application<RouterHarness>, String, String, Broker) {
         let broker = Broker(store: try GrantStore(key: GrantStore.randomKey()), profile: DevelopmentAdapter.profile, adapter: DevelopmentAdapter())
         let (_, a) = try await broker.createGrant(label: "A"), (_, b) = try await broker.createGrant(label: "B")
-        return (try CommonbeamServer.application(broker: broker), a, b, broker)
+        return (Application(responder: RouterHarness(responder: BeamHTTPResponder(broker: broker, port: 52441))), a, b, broker)
     }
     func request(stream: Bool = false) -> ByteBuffer {
         ByteBuffer(string: "{\"profile\":\"fixture-text\",\"profileRevision\":2,\"messages\":[{\"role\":\"user\",\"content\":\"synthetic\"}],\"maxOutputTokens\":1,\"stream\":\(stream)}")
