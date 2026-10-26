@@ -14,7 +14,7 @@ let package = Package(
     ],
     targets: [
         .target(name: "CommonbeamCore"),
-        .target(name: "CommonbeamHTTP", dependencies: ["CommonbeamCore", .product(name: "Hummingbird", package: "hummingbird"), .product(name: "NIOCore", package: "swift-nio"), .product(name: "NIOHTTPTypes", package: "swift-nio-extras"), .product(name: "Logging", package: "swift-log")]),
+        .target(name: "CommonbeamHTTP", dependencies: ["CommonbeamCore", .product(name: "Hummingbird", package: "hummingbird"), .product(name: "HummingbirdCore", package: "hummingbird"), .product(name: "NIOCore", package: "swift-nio"), .product(name: "NIOHTTPTypes", package: "swift-nio-extras"), .product(name: "Logging", package: "swift-log")]),
         .executableTarget(name: "CommonbeamApp", dependencies: ["CommonbeamCore", "CommonbeamHTTP"]),
         .executableTarget(name: "CommonbeamFixtureServer", dependencies: ["CommonbeamCore", "CommonbeamHTTP"]),
         .testTarget(name: "CommonbeamCoreTests", dependencies: ["CommonbeamCore"]),

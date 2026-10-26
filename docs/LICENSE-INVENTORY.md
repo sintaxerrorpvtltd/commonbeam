@@ -18,7 +18,7 @@ The project name/logo remain identifiers, not a trademark license or clearance c
 
 No third-party source or model weights are copied into this repository. Anyone
 distributing compiled bundles must include the complete resolved dependency notices.
-CI records the full resolved graph. A committed lockfile is added after resolution
-is verified; source dependency minima are not a claim of a completed license audit.
+The committed Package.resolved records the full graph resolved by macOS CI.
+Source dependency minima and resolution are not a completed license audit.
 
 Official source: https://github.com/hummingbird-project/hummingbird/tree/2.28.0
