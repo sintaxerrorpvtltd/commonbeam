@@ -1,0 +1,18 @@
+.build/
+.swiftpm/
+node_modules/
+dist/
+*.app/
+.DS_Store
+*.secret
+.env*
+test-results/
+# Original private design handoff remains local; publish only the curated docs.
+docs/PRD.md
+docs/WORKER-HANDOFF.md
+docs/RESEARCH.md
+docs/BRAND-AND-ASSETS.md
+docs/PHASE-0.md
+docs/NEXT-STEPS.md
+docs/TEST-REPORT.md
+

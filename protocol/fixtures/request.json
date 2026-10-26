@@ -1,0 +1,1 @@
+{"profile":"local-text","profileRevision":1,"messages":[{"role":"user","content":"Rewrite: hello world"}],"maxOutputTokens":128,"deadlineMs":30000,"stream":true}

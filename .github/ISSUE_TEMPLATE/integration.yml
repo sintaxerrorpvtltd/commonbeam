@@ -1,0 +1,16 @@
+name: Integration feedback
+description: Tell us what your app needs from Commonbeam
+body:
+  - type: textarea
+    id: usecase
+    attributes:
+      label: What are you building?
+      description: Describe the operation, platform and setup friction. Do not share private data.
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: What would this improve over using a provider API directly?
+    validations:
+      required: true

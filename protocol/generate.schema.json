@@ -1,0 +1,20 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"urn:commonbeam:protocol:1:generate",
+  "title":"Commonbeam v1 text generation request",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["profile","profileRevision","messages"],
+  "properties":{
+    "profile":{"type":"string","minLength":1,"maxLength":128},
+    "profileRevision":{"type":"integer","minimum":1,"maximum":9007199254740991},
+    "messages":{"type":"array","minItems":1,"maxItems":32,"items":{
+      "type":"object","additionalProperties":false,"required":["role","content"],
+      "properties":{"role":{"enum":["system","user","assistant"]},"content":{"type":"string"}}
+    }},
+    "maxOutputTokens":{"type":"integer","minimum":1,"maximum":512,"default":256},
+    "deadlineMs":{"type":"integer","minimum":1000,"maximum":120000,"default":30000},
+    "stream":{"type":"boolean","default":false}
+  },
+  "$comment":"Enforce UTF-8 profile <=128 bytes, aggregate message content <=65536 bytes and full body <=98304 bytes in addition to this schema."
+}

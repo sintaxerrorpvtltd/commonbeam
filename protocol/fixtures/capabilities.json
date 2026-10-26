@@ -1,0 +1,1 @@
+{"protocol":1,"profiles":[{"id":"local-text","revision":1,"state":"ready","backend":"fixture","execution":"local","modelDigest":null,"operations":["text.generate"],"features":{"stream":true,"jsonSchema":false,"tools":false},"limits":{"maxInputBytes":65536,"maxOutputTokens":512,"contextTokens":null}}]}

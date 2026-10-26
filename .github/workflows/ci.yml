@@ -1,0 +1,38 @@
+name: Phase 1 checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: checks-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  macos:
+    runs-on: macos-26
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - name: Record toolchain
+        run: |
+          sw_vers
+          swift --version
+          node --version
+      - name: Resolve server dependencies
+        run: |
+          swift package resolve
+          echo COMMONBEAM_LOCKFILE_BEGIN
+          cat Package.resolved
+          echo COMMONBEAM_LOCKFILE_END
+      - name: Protocol, core, transport and client tests
+        env:
+          COMMONBEAM_SOCKET_TESTS: '1'
+        run: sh scripts/test.sh
+      - name: Both SDKs against the Swift HTTP server
+        run: sh scripts/test-e2e.sh
+      - name: Package and verify local developer app
+        run: sh scripts/package-app.sh

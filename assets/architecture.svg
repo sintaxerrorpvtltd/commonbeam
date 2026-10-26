@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" role="img" aria-labelledby="title desc">
+<title id="title">Commonbeam proposed architecture</title><desc id="desc">Swift and Node apps connect by authenticated local HTTP to a broker. A native user interface controls grants. The broker selects an approved local Ollama or gated Apple on-device adapter. This is a proposed design.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#516277"/></marker></defs>
+<rect width="1200" height="600" rx="24" fill="#fffcf4"/>
+<g fill="#09264a" font-family="Arial, sans-serif"><text x="52" y="64" font-size="30" font-weight="700">Commonbeam</text><text x="52" y="96" font-size="17">Proposed architecture · Local text first</text></g>
+<g stroke="#516277" stroke-width="3" fill="none" marker-end="url(#arrow)"><path d="M280 235H350V320H440"/><path d="M280 425H350V360H440"/><path d="M570 220V280"/><path d="M700 320H790V235H900"/><path d="M700 360H790V425H900"/></g>
+<g font-family="Arial, sans-serif" text-anchor="middle">
+<g fill="#fff" stroke="#cad2da" stroke-width="2"><rect x="50" y="190" width="230" height="90" rx="16"/><rect x="50" y="380" width="230" height="90" rx="16"/><rect x="440" y="130" width="260" height="90" rx="16"/><rect x="900" y="190" width="250" height="90" rx="16"/><rect x="900" y="380" width="250" height="90" rx="16"/></g>
+<rect x="440" y="280" width="260" height="120" rx="18" fill="#09264a"/>
+<g fill="#09264a" font-size="22" font-weight="700"><text x="165" y="226">Swift app</text><text x="165" y="416">Node desktop app</text><text x="570" y="167">Native control app</text><text x="1025" y="226">Ollama adapter</text><text x="1025" y="416">Apple adapter</text></g>
+<g fill="#516277" font-size="16"><text x="165" y="252">Tiny Swift client</text><text x="165" y="442">Tiny JavaScript client</text><text x="570" y="194">Grants · profiles · pause</text><text x="1025" y="252">Approved local model digest</text><text x="1025" y="442">On-device · terms gate</text></g>
+<text x="570" y="326" font-size="23" font-weight="700" fill="#fff">Commonbeam broker</text><text x="570" y="358" font-size="16" fill="#fff">Validate · queue · cancel</text>
+<text x="340" y="174" font-size="15" fill="#516277">HTTP + grant</text><text x="810" y="174" font-size="15" fill="#516277">Local execution</text>
+</g>
+<text x="52" y="548" fill="#516277" font-size="16" font-family="Arial, sans-serif">No cloud fallback · Integration credentials are not verified app identity · Backend behavior requires testing</text>
+</svg>

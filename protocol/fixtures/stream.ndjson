@@ -1,0 +1,4 @@
+{"type":"start","id":"fixture-request","profile":"local-text","profileRevision":1,"execution":"local","backend":"fixture","modelDigest":null}
+{"type":"delta","id":"fixture-request","text":"Hello 🌍"}
+{"type":"delta","id":"fixture-request","text":""}
+{"type":"done","id":"fixture-request","finishReason":"stop","usage":{"inputTokens":null,"outputTokens":null}}
